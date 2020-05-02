@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzp.dao.TaskDao">
+    <resultMap id="TaskMap" type="Task">
+        <id column="id" property="TaskId"/>
+        <result column="name" property="TaskName"/>
+        <result column="type" property="TaskType"/>
+        <result column="time" property="TaskTime"/>
+    </resultMap>
+    <!--    配置查询所有-->
+    <select id="getAllTask" resultMap="TaskMap">
+        select * from Task;
+    </select>
+</mapper>
