@@ -11,7 +11,8 @@ import java.util.List;
  */
 @Data
 public class Task {
-    private String TaskId;
+    private Integer TaskId;
+    private String TaskAppid;
     private String TaskName;
     private String TaskType;
     private List<ChildrenTask> ChildrenTasks;

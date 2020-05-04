@@ -8,9 +8,18 @@
         <result column="name" property="TaskName"/>
         <result column="type" property="TaskType"/>
         <result column="time" property="TaskTime"/>
+        <result column="appid" property="TaskAppid"/>
     </resultMap>
-    <!--    配置查询所有-->
     <select id="getAllTask" resultMap="TaskMap">
-        select * from Task;
+        select * from Task where appid=#{appid};
     </select>
+    <insert id="setTask" useGeneratedKeys="true" keyProperty="TaskId">
+        INSERT INTO `task` (`name`, `type`, `time`,`appid`) VALUES (#{TaskName},#{TaskType},#{TaskTime},#{TaskAppid});
+    </insert>
+    <insert id="setChildren" >
+        INSERT INTO `children` (`parentid`, `name`, `type`) VALUES 
+        <foreach collection="childrenTasks" item="item" index="index" separator=",">
+            (#{id},#{item.ChildrenTaskName},#{item.ChildrenTaskType})
+        </foreach>
+    </insert>
 </mapper>
