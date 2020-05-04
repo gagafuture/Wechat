@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzp.dao.TaskDao">
+    <resultMap id="TaskMap" type="Task">
+        <id column="id" property="TaskId"/>
+        <result column="name" property="TaskName"/>
+        <result column="type" property="TaskType"/>
+        <result column="time" property="TaskTime"/>
+        <result column="appid" property="TaskAppid"/>
+    </resultMap>
+    <select id="getAllTask" resultMap="TaskMap">
+        select * from Task where appid=#{appid};
+    </select>
+    <insert id="setTask" useGeneratedKeys="true" keyProperty="TaskId">
+        INSERT INTO `task` (`name`, `type`, `time`,`appid`) VALUES (#{TaskName},#{TaskType},#{TaskTime},#{TaskAppid});
+    </insert>
+    <insert id="setChildren" >
+        INSERT INTO `children` (`parentid`, `name`, `type`) VALUES 
+        <foreach collection="childrenTasks" item="item" index="index" separator=",">
+            (#{id},#{item.ChildrenTaskName},#{item.ChildrenTaskType})
+        </foreach>
+    </insert>
+</mapper>
