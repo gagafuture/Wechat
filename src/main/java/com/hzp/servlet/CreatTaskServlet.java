@@ -10,8 +10,8 @@ import java.io.IOException;
 @WebServlet("/test")
 public class CreatTaskServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().append("good111");
-        request.getParameterMap();
+        response.getWriter().append((CharSequence) request.getParameterMap());
+//        request.getParameterMap();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
