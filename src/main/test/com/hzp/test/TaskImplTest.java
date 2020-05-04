@@ -1,6 +1,5 @@
 package com.hzp.test;
 
-import com.alibaba.fastjson.JSON;
 import com.hzp.entity.ChildrenTask;
 import com.hzp.entity.Task;
 import com.hzp.service.TaskSrevice;
@@ -17,12 +16,6 @@ public class TaskImplTest {
     @Before
     public void initContext(){
         context = new ClassPathXmlApplicationContext("applicationContext.xml");
-    }
-    @Test
-    public void getTask(){
-        String str = "{\"taskType\":\"2\",\"childrenTasks\":[{\"childrenTaskTime\":\"8\",\"childrenTaskName\":\"good\"}],\"taskName\":\"运动\",\"taskId\":\"9\",\"taskTime\":\"8\"}";
-        Task task = JSON.parseObject(str,Task.class);
-        System.out.println(task);
     }
     @Test
     public void setTask(){

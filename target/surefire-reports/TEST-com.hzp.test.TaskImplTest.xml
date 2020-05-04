@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.hzp.test.TaskImplTest" time="0.942" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.hzp.test.TaskImplTest" time="0.881" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="CN"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="D:\JDK\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\Administrator\AppData\Local\Temp\surefire5813761100642648183\surefirebooter575533154951915313.jar C:\Users\Administrator\AppData\Local\Temp\surefire5813761100642648183 2020-05-04T14-55-21_641-jvmRun1 surefire5489847337743569811tmp surefire_07183494489369241638tmp"/>
+    <property name="sun.java.command" value="C:\Users\Administrator\AppData\Local\Temp\surefire3340398318649422510\surefirebooter9036370200817436150.jar C:\Users\Administrator\AppData\Local\Temp\surefire3340398318649422510 2020-05-04T16-58-38_296-jvmRun1 surefire8026248838646635211tmp surefire_07300969942115768856tmp"/>
     <property name="surefire.test.class.path" value="F:\workspace\JAVA\wechat_timer\target\test-classes;F:\workspace\JAVA\wechat_timer\target\classes;D:\Maven\apache-maven-3.6.3\lib\repository\org\slf4j\slf4j-log4j12\1.7.21\slf4j-log4j12-1.7.21.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\slf4j\slf4j-api\1.7.21\slf4j-api-1.7.21.jar;D:\Maven\apache-maven-3.6.3\lib\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\springframework\spring-jdbc\5.2.5.RELEASE\spring-jdbc-5.2.5.RELEASE.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\springframework\spring-core\5.2.5.RELEASE\spring-core-5.2.5.RELEASE.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\springframework\spring-jcl\5.2.5.RELEASE\spring-jcl-5.2.5.RELEASE.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\springframework\spring-tx\5.2.5.RELEASE\spring-tx-5.2.5.RELEASE.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\springframework\spring-beans\5.2.5.RELEASE\spring-beans-5.2.5.RELEASE.jar;D:\Maven\apache-maven-3.6.3\lib\repository\commons-dbcp\commons-dbcp\1.4\commons-dbcp-1.4.jar;D:\Maven\apache-maven-3.6.3\lib\repository\commons-pool\commons-pool\1.5.4\commons-pool-1.5.4.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\springframework\spring-web\5.2.5.RELEASE\spring-web-5.2.5.RELEASE.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\mybatis\mybatis-spring\2.0.4\mybatis-spring-2.0.4.jar;D:\Maven\apache-maven-3.6.3\lib\repository\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar;D:\Maven\apache-maven-3.6.3\lib\repository\com\google\protobuf\protobuf-java\3.6.1\protobuf-java-3.6.1.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\mybatis\mybatis\3.5.4\mybatis-3.5.4.jar;D:\Maven\apache-maven-3.6.3\lib\repository\junit\junit\4.11\junit-4.11.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\Maven\apache-maven-3.6.3\lib\repository\javax\servlet\javax.servlet-api\4.0.1\javax.servlet-api-4.0.1.jar;D:\Maven\apache-maven-3.6.3\lib\repository\javax\servlet\jsp\javax.servlet.jsp-api\2.3.3\javax.servlet.jsp-api-2.3.3.jar;D:\Maven\apache-maven-3.6.3\lib\repository\com\alibaba\fastjson\1.2.68\fastjson-1.2.68.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\springframework\spring-context\4.3.5.RELEASE\spring-context-4.3.5.RELEASE.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\springframework\spring-aop\4.3.5.RELEASE\spring-aop-4.3.5.RELEASE.jar;D:\Maven\apache-maven-3.6.3\lib\repository\org\springframework\spring-expression\4.3.5.RELEASE\spring-expression-4.3.5.RELEASE.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Administrator"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Administrator\AppData\Local\Temp\surefire5813761100642648183\surefirebooter575533154951915313.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Administrator\AppData\Local\Temp\surefire3340398318649422510\surefirebooter9036370200817436150.jar"/>
     <property name="sun.boot.class.path" value="D:\JDK\jre\lib\resources.jar;D:\JDK\jre\lib\rt.jar;D:\JDK\jre\lib\sunrsasign.jar;D:\JDK\jre\lib\jsse.jar;D:\JDK\jre\lib\jce.jar;D:\JDK\jre\lib\charsets.jar;D:\JDK\jre\lib\jfr.jar;D:\JDK\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -62,6 +62,6 @@
     <property name="maven.repo.local" value="D:\Maven\apache-maven-3.6.3\lib\repository"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="getTask" classname="com.hzp.test.TaskImplTest" time="0.837"/>
-  <testcase name="setTask" classname="com.hzp.test.TaskImplTest" time="0.074"/>
+  <testcase name="getTask" classname="com.hzp.test.TaskImplTest" time="0.788"/>
+  <testcase name="setTask" classname="com.hzp.test.TaskImplTest" time="0.07"/>
 </testsuite>

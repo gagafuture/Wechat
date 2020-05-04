@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <h2>hello</h2>
+    <script >
+        $(function () {
+            var data = {"username":"username","password":"password","children":{
+                    "name":"gaga2",
+                    "sex":"nan"
+                }};
+            var jsonstr = JSON.stringify(data);
+
+            $.ajax({
+                type: "post",
+                url: "test",
+                data: jsonstr,
+                dataType:'json',
+                success: function (response) {
+                    console.log("ok")
+
+                }
+            });
+          })
+    </script>
+</body>
+</html>
