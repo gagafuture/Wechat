@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
  * @time: 2020/5/2 16:31
  */
 public class JsonUtil {
-    public static String getJsonRequest(HttpServletRequest request) throws IOException {
+    public static String getRequest(HttpServletRequest request) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream(), StandardCharsets.UTF_8));
         StringBuilder stringBuilder = new StringBuilder();
         String temp;

@@ -36,4 +36,22 @@ public class TaskImplTest {
         taskSrevice.setTask(task);
 
     }
+    @Test
+    public void delTask(){
+        TaskSrevice taskSrevice = context.getBean(TaskSrevice.class);
+        taskSrevice.delTask(1);
+    }
+    @Test
+    public void updateTask(){
+        TaskSrevice taskSrevice = context.getBean(TaskSrevice.class);
+        List<Task> tasks = taskSrevice.getAllTask("asdasdasdfga13213");
+        tasks.get(0).setTaskType("555");
+        ChildrenTask childrenTask = new ChildrenTask();
+        childrenTask.setChildrenTaskParentId(tasks.get(0).getTaskId());
+        childrenTask.setChildrenTaskName("asdasd");
+        List<ChildrenTask> childrenTasks = new ArrayList<ChildrenTask>();
+        childrenTasks.add(childrenTask);
+        tasks.get(0).setChildrenTasks(childrenTasks);
+        taskSrevice.updateTask(tasks.get(0));
+    }
 }

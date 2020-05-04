@@ -17,9 +17,13 @@
         INSERT INTO `task` (`name`, `type`, `time`,`appid`) VALUES (#{TaskName},#{TaskType},#{TaskTime},#{TaskAppid});
     </insert>
     <insert id="setChildren" >
-        INSERT INTO `children` (`parentid`, `name`, `type`) VALUES 
+        INSERT INTO `children` (`parentid`, `name`, `type`,`img`) VALUES
         <foreach collection="childrenTasks" item="item" index="index" separator=",">
-            (#{id},#{item.ChildrenTaskName},#{item.ChildrenTaskType})
+            (#{id},#{item.ChildrenTaskName},#{item.ChildrenTaskType},#{item.ChildrenTaskImg})
         </foreach>
     </insert>
+    <delete id="delTask">
+        DELETE FROM wechat.task WHERE id = ${id};
+        DELETE FROM wechat.children WHERE parentid = ${id};
+    </delete>
 </mapper>

@@ -13,4 +13,5 @@ public class ChildrenTask {
     private String ChildrenTaskTime;
     private String ChildrenTaskType;
     private String ChildrenTaskImg;
+    private Integer ChildrenTaskParentId;
 }

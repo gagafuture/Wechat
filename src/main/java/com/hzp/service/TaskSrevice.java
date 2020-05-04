@@ -26,10 +26,11 @@ public class TaskSrevice implements TaskServiceImpl {
         return this.taskDao.getAllTask(appid);
     }
 
-//    @Override
-//    public int setChildren(List<ChildrenTask> childrenTasks, Integer id) {
-//        return 0;
-//    }
+    @Override
+    public boolean delTask(Integer id) {
+        return this.taskDao.delTask(id)>0;
+    }
+
 
     @Override
     public boolean setTask(Task task) {
@@ -41,5 +42,13 @@ public class TaskSrevice implements TaskServiceImpl {
             setChildrenBoolean = this.taskDao.setChildren(task.getChildrenTasks(),task.getTaskId());
         }
         return setChildrenBoolean > 0 && setTaskBoolean > 0;
+    }
+
+    @Override
+    public boolean updateTask(Task task) {
+        if(delTask(task.getTaskId())) {
+            return setTask(task);
+        }
+        return false;
     }
 }

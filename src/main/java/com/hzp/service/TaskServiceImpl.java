@@ -19,13 +19,13 @@ public interface TaskServiceImpl {
     /**
      *
      *
-     * @description:
+     * @description:删除已有的任务
      * @param null
      * @return:
      * @author: GAGA
      * @time: 2020/5/4 14:12
      */
-//    int setChildren(List<ChildrenTask> childrenTasks,Integer id);
+    boolean delTask(Integer id);
 
     /**
      *
@@ -37,4 +37,14 @@ public interface TaskServiceImpl {
      * @time: 2020/5/4 14:09
      */
     boolean setTask(Task task);
+    /**
+     *
+     *
+     * @description: 更新任务内容
+     * @param null
+     * @return:
+     * @author: GAGA
+     * @time: 2020/5/4 20:35
+     */
+    boolean updateTask(Task task);
 }
