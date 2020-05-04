@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!-- 自动扫描组件 -->
+    <context:component-scan base-package="com.hzp"/>
+    <!-- applicationContext.xml整合mybatis全局配置文件 -->
+    <!-- 数据库相关配置
+            引入数据库配置文件db.properties以后，$#{}可以使用
+     -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:db.properties"/>
+    </bean>
+    <!-- 创建一个数据源对象 -->
+    <bean id="dataSource"  class="org.apache.commons.dbcp.BasicDataSource">
+        <!--设置数据源连接的参数  -->
+        <property name="driverClassName" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${user}"/>
+        <property name="password" value="${pwd}"/>
+        <!--可以配置其他数据库连接池参数（自行补齐）  -->
+    </bean>
+    <!-- 配置sqlsessionFactory对象 -->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean" >
+        <!-- 设置别名 -->
+        <property name="typeAliasesPackage" value="com.hzp.entity"/>
+        <!-- 必须数据源 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!--配置映射文件对映的路径  -->
+        <property name="mapperLocations" value="classpath:com/hzp/dao/*.xml"/>
+    </bean>
+    <!-- 使用扫描器，扫描某个包底下所有的Mapper接口 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 要扫描的基本包 -->
+        <property name="basePackage" value="com.hzp.dao"/>
+
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
+
+
+    </bean>
+</beans>
