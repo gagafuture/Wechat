@@ -2,6 +2,7 @@ package com.hzp.service;
 
 import com.hzp.entity.Task;
 
+import java.util.Date;
 import java.util.List;
 
 public interface TaskServiceImpl {
@@ -47,4 +48,18 @@ public interface TaskServiceImpl {
      * @time: 2020/5/4 20:35
      */
     boolean updateTask(Task task);
+
+    /**
+     *
+     *
+     * @description: 提交任务
+     * @param null
+     * @return:
+     * @author: GAGA
+     * @time: 2020/5/7 22:17
+     */
+    boolean updateChildren(String id , Date date,String img , String type);
+
+
+    boolean updateChildrenType();
 }

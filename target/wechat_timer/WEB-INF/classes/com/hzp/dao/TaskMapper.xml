@@ -33,4 +33,10 @@
         DELETE FROM wechat.task WHERE id = ${id};
         DELETE FROM wechat.children WHERE parentid = ${id};
     </delete>
+    <update id="updateChildren">
+        UPDATE `children` SET `type`=#{type}, `img`=#{img}, `overtime`=#{date} WHERE (`id`=#{id})
+    </update>
+    <update id="updateChildrenType">
+        update  children ,task set children.type = 1 where task.type=1 and task.id=children.parentid;
+    </update>
 </mapper>

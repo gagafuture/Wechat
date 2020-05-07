@@ -5,6 +5,7 @@ import com.hzp.entity.Task;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,5 +52,15 @@ public class TaskSrevice implements TaskServiceImpl {
             return setTask(task);
         }
         return false;
+    }
+
+    @Override
+    public boolean updateChildren(String id, Date date, String img, String type) {
+        return this.taskDao.updateChildren(id,date,img,type) > 0;
+    }
+
+    @Override
+    public boolean updateChildrenType() {
+        return this.taskDao.updateChildrenType() > 0;
     }
 }

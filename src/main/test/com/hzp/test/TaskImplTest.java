@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -65,9 +66,12 @@ public class TaskImplTest {
     @Test
     public void gettASK(){
         TaskSrevice taskSrevice = context.getBean(TaskSrevice.class);
-        List<Task> tasks = taskSrevice.getAllTask("o-F__4zq-g8GG8UpSowltQdWdrdw");
-        Date e=tasks.get(0).getChildrenTasks().get(0).getChildrenTaskTime();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        System.out.println(dateFormat.format(e));
+        taskSrevice.updateChildrenType();
+    }
+    @Test
+    public void data() throws ParseException {
+        String datestr = "2020/05/07 22:45:40";
+        Date date = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").parse(datestr);
+        System.out.println(date.toString());
     }
 }
