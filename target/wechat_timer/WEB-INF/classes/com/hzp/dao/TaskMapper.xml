@@ -9,17 +9,24 @@
         <result column="type" property="TaskType"/>
         <result column="time" property="TaskTime"/>
         <result column="appid" property="TaskAppid"/>
+        <collection property="ChildrenTasks" ofType="ChildrenTask">
+            <id column="c_id" property="ChildrenTaskId" />
+            <result column="c_name" property="ChildrenTaskName" />
+            <result column="c_type" property="ChildrenTaskType" />
+            <result column="creattime" property="ChildrenTaskTime" />
+            <result column="overtime" property="ChildrenTaskTimeO" />
+        </collection>
     </resultMap>
     <select id="getAllTask" resultMap="TaskMap">
-        select * from Task where appid=#{appid};
+        select t.* , c.id "c_id" ,c.name "c_name", c.type "c_type", c.creattime ,c.overtime from Task t,children c where appid=#{appid} and t.id = c.parentid;
     </select>
     <insert id="setTask" useGeneratedKeys="true" keyProperty="TaskId">
         INSERT INTO `task` (`name`, `type`, `time`,`appid`) VALUES (#{TaskName},#{TaskType},#{TaskTime},#{TaskAppid});
     </insert>
     <insert id="setChildren" >
-        INSERT INTO `children` (`parentid`, `name`, `type`,`img`) VALUES
+        INSERT INTO `children` (`parentid`, `name`, `type`,`creattime`,`overtime`,`img`) VALUES
         <foreach collection="childrenTasks" item="item" index="index" separator=",">
-            (#{id},#{item.ChildrenTaskName},#{item.ChildrenTaskType},#{item.ChildrenTaskImg})
+            (#{id},#{item.ChildrenTaskName},#{item.ChildrenTaskType},#{item.ChildrenTaskTime},#{item.ChildrenTaskTimeO},#{item.ChildrenTaskImg})
         </foreach>
     </insert>
     <delete id="delTask">

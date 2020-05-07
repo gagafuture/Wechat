@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Map;
 
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
@@ -28,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         String secret = "1bbcb4b6341495e1a3073cc9791b8b51";
         url = String.format(url,appid,secret,code);
         String result  = HttpUtil.sendGet(url);
-        Map<String,String> resultMap = JSON.parseObject(result,Map.class);
+//        String a = "{\"session_key\":\"Y1BSBdfmNbx1FTXz8In1gA==\",\"openid\":\"o-F__4zq-g8GG8UpSowltQdWdrdw\"}";
         response.getWriter().append(result);
     }
 

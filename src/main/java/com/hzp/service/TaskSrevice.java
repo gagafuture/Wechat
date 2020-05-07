@@ -23,6 +23,7 @@ public class TaskSrevice implements TaskServiceImpl {
 
     @Override
     public List<Task> getAllTask(String appid) {
+        List<Task> tasks = this.taskDao.getAllTask(appid);
         return this.taskDao.getAllTask(appid);
     }
 
