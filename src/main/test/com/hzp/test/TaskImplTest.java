@@ -1,6 +1,8 @@
 package com.hzp.test;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.hzp.entity.ChildrenTask;
 import com.hzp.entity.Task;
 import com.hzp.service.TaskSrevice;
@@ -64,9 +66,17 @@ public class TaskImplTest {
         taskSrevice.updateTask(tasks.get(0));
     }
     @Test
-    public void gettASK(){
+    public void gettASK() throws ParseException {
         TaskSrevice taskSrevice = context.getBean(TaskSrevice.class);
-        taskSrevice.updateChildrenType();
+//        taskSrevice.updateChildrenType();
+        String str = "{\"TaskName\":\"dsadasd\",\"TaskType\":\"1\",\"ChildrenTasks\":[{\"ChildrenTaskName\":\"dasdas\",\"ChildrenTaskTime\":\"02:00\"}],\"TaskAppid\":\"o-F__4zq-g8GG8UpSowltQdWdrdw\",\"TaskTime\":\"2020/05/08 11:16:08\"}";
+        JSONObject jsonObject = JSON.parseObject(str);
+        JSONArray jsonArray = jsonObject.getJSONArray("ChildrenTasks");
+        for (int i = 0;i<jsonArray.size();i++){
+            jsonArray.getJSONObject(i).put("ChildrenTaskTime","2020-05-08 "+jsonArray.getJSONObject(0).getString("ChildrenTaskTime"));
+        }
+        jsonObject.put("ChildrenTasks",jsonArray);
+
     }
     @Test
     public void data() throws ParseException {

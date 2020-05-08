@@ -1,6 +1,8 @@
 package com.hzp.servlet;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.hzp.Utils.JsonUtil;
 import com.hzp.entity.ChildrenTask;
 import com.hzp.entity.Task;
@@ -23,6 +25,17 @@ public class CreatTaskServlet extends HttpServlet {
     TaskSrevice taskSrevice = context.getBean(TaskSrevice.class);
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String jsonstr = JsonUtil.getRequest(request);
+        System.out.println(jsonstr);
+        JSONObject jsonObject = JSON.parseObject(jsonstr);
+        System.out.println(jsonObject);
+        if (jsonObject.getString("TaskType").equals("1")){
+            JSONArray jsonArray = jsonObject.getJSONArray("ChildrenTasks");
+            for (int i = 0;i<jsonArray.size();i++){
+                jsonArray.getJSONObject(i).put("ChildrenTaskTime","2020-05-08 "+jsonArray.getJSONObject(0).getString("ChildrenTaskTime"));
+            }
+            jsonObject.put("ChildrenTasks",jsonArray);
+        }
+        jsonstr  = JSON.toJSONString(jsonObject);
         System.out.println(jsonstr);
         Task task  = JSON.parseObject(jsonstr,Task.class);
         task.getChildrenTasks().iterator().forEachRemaining((item)->{
