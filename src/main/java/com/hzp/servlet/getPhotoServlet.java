@@ -21,7 +21,7 @@ import java.util.List;
 public class getPhotoServlet extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(getPhotoServlet.class);
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String path = request.getRealPath("\\photo") + "\\Appid\\";
+        String path = request.getRealPath("/photo") + "/Appid/";
         File dir = new File(path);
         if (!dir.exists()) {
             dir.mkdirs();
@@ -63,7 +63,7 @@ public class getPhotoServlet extends HttpServlet {
                     System.out.println(picture);
                 }
             }
-            path = request.getRealPath("\\photo") + "\\"+request.getAttribute("userinfo")+"\\";;
+            path = request.getRealPath("/photo") + "/"+request.getAttribute("userinfo")+"/";;
             dir.renameTo(new File(path));
             //自定义上传图片的名字为userId.jpg
             String fileName = request.getAttribute("task") + "-" + request.getAttribute("children") + ".jpg";
