@@ -1,5 +1,8 @@
 package com.hzp.Utils;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
@@ -11,6 +14,7 @@ import java.util.Timer;
  */
 public class TimerManager {
     private static final long PERIOD_DAY = 24 * 60 * 60 * 1000;
+    private static Log log = LogFactory.getLog(TimerManager.class);
     public TimerManager() {
         Calendar calendar = Calendar.getInstance();
 
@@ -22,6 +26,7 @@ public class TimerManager {
 
         Date date=calendar.getTime(); //第一次执行定时任务的时间
         System.out.println(date);
+        log.info("当前时间："+date);
         System.out.println("before 方法比较："+date.before(new Date()));
         //如果第一次执行定时任务的时间 小于 当前的时间
         //此时要在 第一次执行定时任务的时间 加一天，以便此任务在下个时间点执行。如果不加一天，任务会立即执行。循环执行的周期则以当前时间为准
@@ -29,7 +34,7 @@ public class TimerManager {
             date = this.addDay(date, 1);
             System.out.println(date);
         }
-
+        log.info("执行时间："+date);
         Timer timer = new Timer();
 
         NFDFlightDataTimerTask task = new NFDFlightDataTimerTask();
