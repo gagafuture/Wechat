@@ -15,6 +15,5 @@ public class NFDFlightDataTaskListener implements ServletContextListener {
 
     public void contextDestroyed(ServletContextEvent sce) {
         // TODO Auto-generated method stub
-
     }
 }
